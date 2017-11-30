@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     
+    
     <style>
       body {color: #808080;
             font-family:Monospace;
@@ -81,6 +82,12 @@
     var toDrag = [];
     var velocity = new THREE.Vector3();
       var direction = new THREE.Vector3();
+    
+    
+    
+    
+    
+    
 /* Try instantiating a new AudioContext, throw an error if it fails. */
 try {
   context = new AudioContext();
@@ -102,6 +109,9 @@ var Sound = {
         sound.disconnect();
         sound = null;
      
+        
+        
+        
         processor.onaudioprocess = function() {};
       }
      
@@ -121,6 +131,11 @@ var Sound = {
     return this.element.paused;
   }
 };
+    
+    
+    
+    
+    
 function loadAudioElement(url) {
   return new Promise(function(resolve, reject) {
     var audio = new Audio(); // audio DOM element, same as createElement('audio')
@@ -133,6 +148,12 @@ function loadAudioElement(url) {
     audio.load();
   });
 }
+    
+    
+    
+    
+    
+    
 // visualization code
     const CUBES_NUM = 70
     , STEP = Math.floor(data.length / CUBES_NUM)
@@ -144,6 +165,7 @@ function loadAudioElement(url) {
 
 
 
+    
     //light
     var ambientLight = new THREE.AmbientLight(0xcccccc);
     scene.add(ambientLight);
@@ -151,17 +173,32 @@ function loadAudioElement(url) {
     directionalLight.position.set(2, 2, 0.5).normalize();
     directionalLight.intensity = 0.75;
     scene.add(directionalLight);
+    
+    
+    
+    
+    
     //renderer
     var renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
     document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+    
+    
+    
+    
     //shape
     geometry = new THREE.OctahedronBufferGeometry(30, 0);
   
+    
+    
+    
     //material
     material = new THREE.MeshNormalMaterial(  );
+    
+    
+    
     
     //shape + material
     mesh1 = new THREE.Mesh(geometry, material);
@@ -181,6 +218,9 @@ function loadAudioElement(url) {
     toDrag.push(mesh3);
     
   
+    
+    
+    
   var floorGeometry = new THREE.PlaneGeometry( 80000, 80000, 100, 100 );
         floorGeometry.rotateX( - Math.PI / 2 );
         for ( var i = 0, l = floorGeometry.vertices.length; i < l; i ++ ) {
@@ -201,6 +241,8 @@ function loadAudioElement(url) {
 
 
 
+    
+    
     //drag
     var dragControls = new THREE.DragControls( toDrag, camera, renderer.domElement );
       dragControls.addEventListener( 'dragstart', function ( e ) {
@@ -255,6 +297,8 @@ function loadAudioElement(url) {
     render();
 
 
+    
+    
 
 
 $(document).ready(function(){
@@ -264,6 +308,9 @@ $(document).ready(function(){
     });
 });
 
+    
+    
+    
 
     // Pause / play audio on page click
     document.body.addEventListener('click', function(ev) {
@@ -277,6 +324,9 @@ $(document).ready(function(){
 });
 
 
+    
+    
+    
 
 
 loadAudioElement('sound2.mp3').then(function(elem) {
@@ -287,6 +337,9 @@ loadAudioElement('sound2.mp3').then(function(elem) {
   throw 'Audio Failed to load';
 });
 
+    
+    
+    
 
 
   var windowHalfX = window.innerWidth / 2;
