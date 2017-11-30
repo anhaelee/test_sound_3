@@ -198,6 +198,9 @@ function loadAudioElement(url) {
         var floorMaterial = new THREE.MeshBasicMaterial( { vertexColors: THREE.VertexColors } );
         var floor = new THREE.Mesh( floorGeometry, floorMaterial );
         scene.add( floor );
+
+
+
     //drag
     var dragControls = new THREE.DragControls( toDrag, camera, renderer.domElement );
       dragControls.addEventListener( 'dragstart', function ( e ) {
@@ -205,11 +208,17 @@ function loadAudioElement(url) {
       dragControls.addEventListener( 'dragend', function ( e ) {
     });
   
+
+
+
     //mousemove
     function onDocumentMouseMove( event ) {
       mouseX = ( event.clientX - windowHalfX );
       mouseY = ( event.clientY - windowHalfY );
     }
+
+
+
     function render() {
     requestAnimationFrame(render);
     mesh1.rotation.x += 0.01;
@@ -230,6 +239,10 @@ function loadAudioElement(url) {
     }
     toDrag[i].position.y = (toDrag[i].scale.y / 2) - 0.5;
     }
+
+
+
+
     delta += 0.006;
     dist = 8;
   
@@ -247,6 +260,7 @@ function loadAudioElement(url) {
 $(document).ready(function(){
     $(".point").click(function(){
         $(".load").animate({opacity: '0'});
+        $(".load").animate({top: '-100%'});
     });
 });
 
@@ -272,6 +286,9 @@ loadAudioElement('sound2.mp3').then(function(elem) {
 }, function(elem) {
   throw 'Audio Failed to load';
 });
+
+
+
   var windowHalfX = window.innerWidth / 2;
   var windowHalfY = window.innerHeight / 2;
   function onWindowResize() {
